@@ -32,7 +32,7 @@ For your reference, here are some more useful Linux terminal commands
 
 # Download and Untar Freesurfer
 
-Freesurfer is available for download on the harvard MGH website. After you go to the directory you want to install freesurfer in, you can download and untar it using the following two commands.
+Freesurfer is available for download on the [Harvard MGH website](https://surfer.nmr.mgh.harvard.edu/fswiki/DownloadAndInstall). After you go to the directory you want to install freesurfer in, you can download and untar it using the following two commands.
 
 ```
 wget ftp://surfer.nmr.mgh.harvard.edu/pub/dist/freesurfer/6.0.0/freesurfer-Linux-centos6_x86_64-stable-pub-v6.0.0.tar.gz
@@ -49,14 +49,14 @@ cd freesurfer
 
 # Set Freesurfer Environment Variables
 
-In Linux, environment variables are useful because they are bits of information accessible from the Linux terminal. The `export` command sets up an environment variable.
+In Linux, environment variables are useful because they are bits of information accessible from the Linux terminal. The `export` command sets up a variable.
 
 Freesurfer requires some set-up in every terminal window. Because of this, it's a good idea to run these set-up steps from your **bashrc** file. The bashrc is a file with commands that are executed at the start-up of each new terminal window. Anything you need to do whenever a new terminal window starts should be put in your bashrc.
 
 ## Main Freesurfer Setup
 
 To add the necessary lines to your bashrc, 
-1. **make sure you are in the freesurfer install folder**
+1. **make sure you are in the freesurfer install folder**. i.e. `/software/mri/freesurfer-6.0.0/freesurfer`
 2. run the following commands
 
 ```
@@ -70,22 +70,26 @@ To test this, open up a new terminal window. You should see something like the f
 ```
 -------- freesurfer-Linux-centos6_x86_64-stable-pub-v6.0.0-2beb96c --------
 Setting up environment for FreeSurfer/FS-FAST (and FSL)
-FREESURFER_HOME   /home/ezhao/software/freesurfer/freesurfer
-FSFAST_HOME       /home/ezhao/software/freesurfer/freesurfer/fsfast
+FREESURFER_HOME   /software/mri/freesurfer-6.0.0/freesurfer
+FSFAST_HOME       /software/mri/freesurfer-6.0.0/freesurfer/fsfast
 FSF_OUTPUT_FORMAT nii.gz
-SUBJECTS_DIR      /home/ezhao/software/freesurfer/freesurfer/subjects
-MNI_DIR           /home/ezhao/software/freesurfer/freesurfer/mni
+SUBJECTS_DIR      /software/mri/freesurfer-6.0.0/freesurfer/subjects
+MNI_DIR           /software/mri/freesurfer-6.0.0/freesurfer/mni
 ```
 
-If this works, then great! Move to the next step. If this is not working properly, have a look manually at your bashrc using `vi ~/.bashrc`.
+If this works, then great! Move to the next step. If this is not working properly, have a look manually at your bashrc using
+
+```
+vi ~/.bashrc
+```
 
 ## Subjects Directory
 
-Next, set up the path to your subjects directory. I will assume that you want your subjects directory to be located at `/home/kaylees/analysis/subjects`. If you need it somewhere else, please modify the following commands before you run them.
+Next, set up the path to your subjects directory. I will assume that you want your subjects directory to be located at `/home/USERNAME/mri/subjects`. Replace `USERNAME` with your linux username. If you need it somewhere else, please modify the following commands before you run them.
 
 ```
-mkdir -p /home/kaylees/analysis/subjects
-echo 'export SUBJECTS_DIR="/home/kaylees/analysis/subjects"' >> ~/.bashrc
+mkdir -p /home/USERNAME/mri/subjects
+echo 'export SUBJECTS_DIR="/home/USERNAME/mri/subjects"' >> ~/.bashrc
 ```
 
 # License
